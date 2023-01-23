@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="../style.css" rel="stylesheet" type="text/css"/>
+<style>@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Erica+One&family=Syncopate&family=Kanit:wght@800&family=Montserrat:wght@300&Oswald:wght@500&family=Ramabhadra&family=Work+Sans:wght@300&display=swap');</style>
+<script crossorigin="anonymous" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<title>Les stats qui déboîtent</title>
+</head>
+<body>
+<script>
+				$(window).bind('load',function(){
+					$('#load').css({
+						'opacity' : '0'
+					});
+					$('#load').css({
+						'z-index' : '-1000'
+					});
+				});
+				$(window).ready(function(){
+					if ($(window).width() <= 768) {  
+						$(".Tall").click(function(){
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+						});
+					}
+				});
+				$(window).resize(function(){
+					if ($(window).width() <= 768) {
+						$(".Tall").click(function(){
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+						});
+					}
+				});
+				$(window).on('scroll',function() {
+					var scrollTop = $(window).scrollTop();
+					if ( scrollTop > $('.filtre').offset().top ) { 
+						$('#div4').css({
+							'opacity' : '1',
+							'left' : '10vw',
+							'box-shadow' : '-50px 0px 0px rgba(26, 196, 187, 15%)'
+						})
+						$('#p1').css({
+							'opacity' : '1'
+						})
+						$('#p1').css({
+							'margin-bottom' : '0'
+						})
+					}
+				});
+				$(document).ready(function(){
+					let bouton=0
+					$("#menu").click(function(){
+						if (bouton==0) {
+							$("#mb2").css({
+								"position" : "absolute",
+								"color" : "rgb(38, 38, 38)"
+							});
+							$("#mb1").css({
+								"right" : "10px",
+								"transform" : "rotate(45deg)"
+							});
+							$("#mb3").css({
+								"left" : "10px",
+								"transform" : "rotate(-45deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "0"
+							});
+							bouton=1
+						}
+						else {
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							bouton=0
+						}
+					});
+				});
+			</script>
+<div id="load"><div id="dot1"></div><div id="dot2"></div></div>
+<div id="topbar">
+<a href="../index.html" id="logo">LSQD</a>
+<div id="menu">
+<h1 class="menubar" id="mb1">|</h1>
+<h1 class="menubar" id="mb2">|</h1>
+<h1 class="menubar" id="mb3">|</h1>
+</div>
+<div id="mtopbar">
+<a class="Tall" href="../index.html"><h1 class="Tall" id="T2">ACCUEIL</h1></a>
+<a class="Tall" href="../d_parkings.html"><h1 class="Tall" id="T3">DONNEES PARKINGS</h1></a>
+<a class="Tall" href="../d_velos.html"><h1 class="Tall" id="T4">DONNEES VELOS</h1></a>
+<a class="Tall" href="../d_tram.html"><h1 class="Tall" id="T5">DONNEES TRAM</h1></a>
+</div>
+</div>
+<div id="divin1">
+<div id="divin2">
+<div id="figure"><img id="imgfig" src="../imgs/Arceaux.png"/></div>
+</div>
+<div id="divin3">
+<div class="divin4">
+<h1 class="Tstats" id="1">60.85 %</h1>
+<h2 class="Tdesc" id="1">Pourcentage moyen d'occupation du parking*</h2>
+</div>
+<div class="divin4">
+<h1 class="Tstats" id="2">16.14</h1>
+<h2 class="Tdesc" id="1">Ecart-type moyen de d'occupation du parking*</h2>
+</div>
+<h2 class="Tdesc2" id="1">*sur la période du jeudi 19/01/2023 au lundi 23/01/2023
+								</h2>
+</div>
+</div>
+</body>
+</html>

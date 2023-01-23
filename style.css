@@ -1,0 +1,403 @@
+html{
+	scroll-behavior: smooth;
+}
+body{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+a{
+	text-decoration: none;
+}
+#load{
+	position: fixed;
+	background-color: white;
+	width: 100vw;
+	height: 100vh;
+	transition-duration: 1s;
+	transition-delay: 0.5s;
+	opacity: 1;
+	z-index: 999;
+}
+#dot1{
+	position: absolute;
+	margin-left: calc(50vw - 30px);
+	margin-top: calc(50vh - 10px);
+	background-color: rgb(40, 182, 192);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	animation: 1s ease-in-out 0s infinite left;
+}
+@keyframes left {
+  0% {
+	margin-left: calc(50vw - 30px);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin-top: calc(50vh - 10px);
+  }
+  25% {
+	width: 25px;
+	height: 25px;
+	border-radius: 15px;
+	margin-top: calc(50vh - 12.5px);
+	z-index: 2;
+  }
+  50% {
+	margin-left: calc(50vw + 10px);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin-top: calc(50vh - 10px);
+  }
+  75% {
+	width: 20px;
+	height: 10px;
+	border-radius: 15px;
+	margin-top: calc(50vh - 5px);
+	z-index: 1;
+  }
+}
+#dot2{
+	position: absolute;
+	margin-left: calc(50vw + 10px);
+	margin-top: calc(50vh - 10px);
+	background-color: rgb(209, 183, 37);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	animation: 1s ease-in-out 0s infinite right;
+}
+@keyframes right {
+  0% {
+	margin-left: calc(50vw + 10px);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin-top: calc(50vh - 10px);
+  }
+  25% {
+	width: 20px;
+	height: 10px;
+	border-radius: 15px;
+	margin-top: calc(50vh - 5px);
+	z-index: 1;
+  }
+  50% {
+	margin-left: calc(50vw - 30px);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin-top: calc(50vh - 10px);
+  }
+  75% {
+	width: 25px;
+	height: 25px;
+	border-radius: 15px;
+	margin-top: calc(50vh - 12.5px);
+	z-index: 2;
+  }
+}
+#topbar{
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 55px;
+	background-color: #122a37;
+	z-index: 998;
+}
+#logo{
+	position: fixed;
+	left: 30px;
+	font-size: 35px;
+	font-family: Kanit;
+	color: white;
+}
+#menu{
+	position: absolute;
+	left: 30px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	transform: rotate(90deg);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	opacity: 0;
+}
+#mb1, #mb3{
+	position: absolute;
+	transition-duration: 0.3s;
+	z-index: 999;
+}
+#mb1{
+	right: 20px;
+}
+#mb3{
+	left: 20px;
+}
+.menubar{
+	display: flex;
+	align-items: center;
+	height: 40px;
+	color: rgb(255, 255, 255);
+	font-family: 'Work sans';
+	transition-duration: 0.3s;
+}
+#mtopbar{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 55px;
+	width: 600px;
+}
+.Tall{
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: Montserrat;
+	color: white;
+}
+#div1{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	padding-top: 55px;
+	height: calc(100vh - 55px);
+    width: 100vw;
+	background-color: #124857;
+}
+#div2{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-top: 25px;
+    height: calc(50% - 50px);
+    width: calc(100vw - 50px);
+}
+#map_montpellier{
+	height: 100%;
+    width: 100vw;
+}
+#div2_tram{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-top: 25px;
+    height: calc(100% - 50px);
+    width: calc(100vw - 50px);
+}
+#map_montpellier_tram{
+	height: 100%;
+    width: 100vw;
+}
+#div3{
+	display: flex;
+	justify-content: space-around;
+    margin-top: 25px;
+	padding-bottom: 50px;
+    height: calc(50% - 75px);
+	padding-left: 2.5vw;
+	padding-right: 2.5vw;
+    width: calc(95vw - 50px);
+    background-color: #122a37;
+}
+.div4{
+    display: flex;
+    align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+    height: 100%;
+    width: 25%;
+}
+.Tstats{
+	position: absolute;
+	font-size: 75px;
+	font-family: Kanit;
+	color: white;
+	text-align: center;
+}
+#divpark{
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	padding-top: 80px;
+	padding-left: 25px;
+	padding-right: 25px;
+    width: calc(100vw - 50px);
+	background-color: #124857;
+}
+.parkings{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px;
+    position: relative;
+    width: 500px;
+    height: 300px;
+	background-color: #122a37;
+	background-size: cover;
+	overflow: hidden;
+}
+.parkings2{
+	display: flex;
+	justify-content: center;
+    position: absolute;
+    width: 1250px;
+    height: 300px;
+	background-color: #122a37;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover
+}
+.velos{
+	margin: 30px;
+    position: relative;
+    width: 500px;
+    height: 300px;
+	background-color: #122a37;
+	background-size: cover;
+}
+.none{
+	position: absolute;
+	width: 0;
+}
+#divin1{
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: space-around;
+	padding-top: 55px;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	height: calc(100vh - 55px);
+    width: 90vw;
+	background-color: #124857;
+}
+#divin2{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    height: calc(75% - 50px);
+    width: 45vw;
+}
+#divin3{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+    height: calc(75% - 150px);
+	padding-top: 100px;
+    width: 30vw;
+    background-color: #122a37;
+}
+.divin4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+}
+#figure{
+	display: flex;
+	justify-content: center;
+	height: 100%;
+    width: 45vw;
+}
+#imgfig{
+	height: 100%;
+}
+.Tdesc, .Tdesc1, .Tdesc2{
+	text-align: center;
+	font-size: 16px;
+	margin-top: 20vh;
+	font-family: Montserrat;
+	color: white;
+}
+.Tdesc1{
+	font-size: 10px;
+	position: absolute;
+	margin-top: 40vh;
+}
+.Tdesc2{
+	bottom: 8.5vh;
+	font-size: 10px;
+	position: relative;
+}
+.Tlabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #124857a8;
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 100%;
+	height: 35px;
+	font-family: Montserrat;
+	color: white;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** responsive design **/
+
+
+
+@media (min-width: 806px) and (max-width : 1000px){
+}
+@media (min-width: 686px) and (max-width : 805px){
+}
+@media (max-width : 768px){
+	#mtopbar{
+		position: absolute;
+		padding-top: 25px;
+		top: 55px;
+		left: -100vw;
+		flex-direction: column;
+		height: calc(350px - 55px);
+		background-color: rgb(228, 92, 87);
+		padding-bottom: calc(100vh - 55px - 320px);
+		width: 100vw;
+		transition-duration: 0.6s;
+		transition-timing-function: ease-in-out;
+		z-index: 2;
+	}
+	#menu{
+		opacity: 1;
+	}
+	.Tall{
+		font-size: 17px;
+	}
+}
+@media (min-width: 621px) and (max-width : 685px){
+}
+@media (min-width: 511px) and (max-width : 620px){
+}
+@media (max-width : 510px){
+}

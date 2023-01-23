@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<style>@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Erica+One&family=Syncopate&family=Kanit:wght@800&family=Montserrat:wght@300&Oswald:wght@500&family=Ramabhadra&family=Work+Sans:wght@300&display=swap');</style>
+<script crossorigin="anonymous" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<title>Les stats qui déboîtent</title>
+</head>
+<body>
+<script>
+				$(window).bind('load',function(){
+					$('#load').css({
+						'opacity' : '0'
+					});
+					$('#load').css({
+						'z-index' : '-1000'
+					});
+				});
+				$(window).ready(function(){
+					if ($(window).width() <= 768) {  
+						$(".Tall").click(function(){
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+						});
+					}
+				});
+				$(window).resize(function(){
+					if ($(window).width() <= 768) {
+						$(".Tall").click(function(){
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+						});
+					}
+				});
+				$(window).on('scroll',function() {
+					var scrollTop = $(window).scrollTop();
+					if ( scrollTop > $('.filtre').offset().top ) { 
+						$('#div4').css({
+							'opacity' : '1',
+							'left' : '10vw',
+							'box-shadow' : '-50px 0px 0px rgba(26, 196, 187, 15%)'
+						})
+						$('#p1').css({
+							'opacity' : '1'
+						})
+						$('#p1').css({
+							'margin-bottom' : '0'
+						})
+					}
+				});
+				$(document).ready(function(){
+					let bouton=0
+					$("#menu").click(function(){
+						if (bouton==0) {
+							$("#mb2").css({
+								"position" : "absolute",
+								"color" : "rgb(38, 38, 38)"
+							});
+							$("#mb1").css({
+								"right" : "10px",
+								"transform" : "rotate(45deg)"
+							});
+							$("#mb3").css({
+								"left" : "10px",
+								"transform" : "rotate(-45deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "0"
+							});
+							bouton=1
+						}
+						else {
+							$("#mb2").css({
+								"color" : "white"
+							});
+							$("#mb1").css({
+								"right" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mb3").css({
+								"left" : "20px",
+								"transform" : "rotate(0deg)"
+							});
+							$("#mtopbar").css({
+								"left" : "-100vw"
+							});
+							bouton=0
+						}
+					});
+				});
+			</script>
+<div id="load"><div id="dot1"></div><div id="dot2"></div></div>
+<div id="topbar">
+<a href="index.html" id="logo">LSQD</a>
+<div id="menu">
+<h1 class="menubar" id="mb1">|</h1>
+<h1 class="menubar" id="mb2">|</h1>
+<h1 class="menubar" id="mb3">|</h1>
+</div>
+<div id="mtopbar">
+<a class="Tall" href="index.html"><h1 class="Tall" id="T2">ACCUEIL</h1></a>
+<a class="Tall" href="d_parkings.html"><h1 class="Tall" id="T3">DONNEES PARKINGS</h1></a>
+<a class="Tall" href="d_velos.html"><h1 class="Tall" id="T4">DONNEES VELOS</h1></a>
+<a class="Tall" href="d_tram.html"><h1 class="Tall" id="T5">DONNEES TRAM</h1></a>
+</div>
+</div>
+<div id="divpark">
+<a class="parkings" href="parkings/Charles de Gaulle.html" id="1" style="none"><div class="parkings2" id="1" style='background-image: url("imgs/CarteCharles de Gaulle.png");'><h1 class="Tlabel" id="1">Charles de Gaulle</h1></div></a>
+<a class="parkings" href="parkings/Viccarello.html" id="2" style="none"><div class="parkings2" id="2" style='background-image: url("imgs/CarteViccarello.png");'><h1 class="Tlabel" id="2">Viccarello</h1></div></a>
+<a class="parkings" href="parkings/Antigone.html" id="3" style="none"><div class="parkings2" id="3" style='background-image: url("imgs/CarteAntigone.png");'><h1 class="Tlabel" id="3">Antigone</h1></div></a>
+<a class="parkings" href="parkings/Arceaux.html" id="4" style="none"><div class="parkings2" id="4" style='background-image: url("imgs/CarteArceaux.png");'><h1 class="Tlabel" id="4">Arceaux</h1></div></a>
+<a class="parkings" href="parkings/Arc de Triomphe.html" id="5" style="none"><div class="parkings2" id="5" style='background-image: url("imgs/CarteArc de Triomphe.png");'><h1 class="Tlabel" id="5">Arc de Triomphe</h1></div></a>
+<a class="parkings" href="parkings/Circe-Odysseum.html" id="6" style="none"><div class="parkings2" id="6" style='background-image: url("imgs/CarteCirce-Odysseum.png");'><h1 class="Tlabel" id="6">Circe-Odysseum</h1></div></a>
+<a class="parkings" href="parkings/Corum.html" id="7" style="none"><div class="parkings2" id="7" style='background-image: url("imgs/CarteCorum.png");'><h1 class="Tlabel" id="7">Corum</h1></div></a>
+<a class="parkings" href="parkings/Europa.html" id="8" style="none"><div class="parkings2" id="8" style='background-image: url("imgs/CarteEuropa.png");'><h1 class="Tlabel" id="8">Europa</h1></div></a>
+<a class="parkings" href="parkings/Foch_Prefecture.html" id="9" style="none"><div class="parkings2" id="9" style='background-image: url("imgs/CarteFoch_Prefecture.png");'><h1 class="Tlabel" id="9">Foch_Prefecture</h1></div></a>
+<a class="parkings" href="parkings/Gambetta.html" id="10" style="none"><div class="parkings2" id="10" style='background-image: url("imgs/CarteGambetta.png");'><h1 class="Tlabel" id="10">Gambetta</h1></div></a>
+<a class="parkings" href="parkings/Garcia Lorca.html" id="11" style="none"><div class="parkings2" id="11" style='background-image: url("imgs/CarteGarcia Lorca.png");'><h1 class="Tlabel" id="11">Garcia Lorca</h1></div></a>
+<a class="parkings" href="parkings/Gare.html" id="12" style="none"><div class="parkings2" id="12" style='background-image: url("imgs/CarteGare.png");'><h1 class="Tlabel" id="12">Gare</h1></div></a>
+<a class="parkings" href="parkings/Euromedecin.html" id="13" style="none"><div class="parkings2" id="13" style='background-image: url("imgs/CarteEuromedecin.png");'><h1 class="Tlabel" id="13">Euromedecin</h1></div></a>
+<a class="parkings" href="parkings/Mosson.html" id="14" style="none"><div class="parkings2" id="14" style='background-image: url("imgs/CarteMosson.png");'><h1 class="Tlabel" id="14">Mosson</h1></div></a>
+<a class="parkings" href="parkings/Occitanie.html" id="15" style="none"><div class="parkings2" id="15" style='background-image: url("imgs/CarteOccitanie.png");'><h1 class="Tlabel" id="15">Occitanie</h1></div></a>
+<a class="parkings" href="parkings/Pitot.html" id="16" style="none"><div class="parkings2" id="16" style='background-image: url("imgs/CartePitot.png");'><h1 class="Tlabel" id="16">Pitot</h1></div></a>
+<a class="parkings" href="parkings/Polygone.html" id="17" style="none"><div class="parkings2" id="17" style='background-image: url("imgs/CartePolygone.png");'><h1 class="Tlabel" id="17">Polygone</h1></div></a>
+<a class="parkings" href="parkings/Sabines.html" id="18" style="none"><div class="parkings2" id="18" style='background-image: url("imgs/CarteSabines.png");'><h1 class="Tlabel" id="18">Sabines</h1></div></a>
+<a class="parkings" href="parkings/Notre-Dame-de-Sablassou.html" id="19" style="none"><div class="parkings2" id="19" style='background-image: url("imgs/CarteNotre-Dame-de-Sablassou.png");'><h1 class="Tlabel" id="19">Notre-Dame-de-Sablassou</h1></div></a>
+<a class="parkings" href="parkings/Triangle.html" id="20" style="none"><div class="parkings2" id="20" style='background-image: url("imgs/CarteTriangle.png");'><h1 class="Tlabel" id="20">Triangle</h1></div></a>
+<a class="parkings" href="parkings/Saint-Jean-le-Sec.html" id="21" style="none"><div class="parkings2" id="21" style='background-image: url("imgs/CarteSaint-Jean-le-Sec.png");'><h1 class="Tlabel" id="21">Saint-Jean-le-Sec</h1></div></a>
+<a class="none" href="none" id="22" style=""><div class="none" id="22"></div></a>
+<a class="none" href="none" id="23" style=""><div class="none" id="23"></div></a>
+<a class="none" href="none" id="24" style=""><div class="none" id="24"></div></a>
+<a class="none" href="none" id="25" style=""><div class="none" id="25"></div></a>
+<a class="none" href="none" id="26" style=""><div class="none" id="26"></div></a>
+<a class="none" href="none" id="27" style=""><div class="none" id="27"></div></a>
+<a class="none" href="none" id="28" style=""><div class="none" id="28"></div></a>
+<a class="none" href="none" id="29" style=""><div class="none" id="29"></div></a>
+<a class="none" href="none" id="30" style=""><div class="none" id="30"></div></a>
+<a class="none" href="none" id="31" style=""><div class="none" id="31"></div></a>
+<a class="none" href="none" id="32" style=""><div class="none" id="32"></div></a>
+<a class="none" href="none" id="33" style=""><div class="none" id="33"></div></a>
+<a class="none" href="none" id="34" style=""><div class="none" id="34"></div></a>
+<a class="none" href="none" id="35" style=""><div class="none" id="35"></div></a>
+<a class="none" href="none" id="36" style=""><div class="none" id="36"></div></a>
+</div>
+</body>
+</html>
