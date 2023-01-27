@@ -152,7 +152,7 @@ a{
 	align-items: center;
 	justify-content: space-around;
 	height: 55px;
-	width: 600px;
+	width: 700px;
 }
 .Tall{
 	cursor: pointer;
@@ -340,9 +340,52 @@ a{
 	color: white;
 	text-align: center;
 }
-
-
-
+#légende{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+	flex-direction: column;
+	left: 35px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	top: calc(50% - 107.5px + 20px);
+	position: absolute;
+	height: 70px;
+    width: 230px;
+	background-color: #272424dd;
+	border-radius: 5px;
+}
+.lg{
+    display: flex;
+	align-items: center;
+	width: 215px;
+	height: 18px;
+}
+#lvelos, #lparkingsAD, #lparkingsSD{
+	width: 18px;
+	height: 18px;
+	border-radius: 9px;
+}
+#lvelos{
+	background-color: #6f8b09;
+}
+#lparkingsAD{
+	background-color: #1d9bcc;
+}
+#lparkingsSD{
+	background-color: #1e5ba0;
+}
+.Tlégende{
+	margin-left: 10px;
+	font-size: 16px;
+	font-family: Montserrat;
+	color: white;
+	text-align: center;
+}
+#pdf{
+	width: 100%;
+	height: 100%;
+}
 
 
 

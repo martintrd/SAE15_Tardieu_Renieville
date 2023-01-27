@@ -1,4 +1,9 @@
-import imgkit
+import matplotlib.pyplot as plt
 
-options = {"xvfb": ""}
-imgkit.from_file("index.html", "screenshot.jpg", options=options)
+data = [49, 20, 37, 28, 20]
+jours = ["", "15/02/2016", "", "28/05/2016", ""]
+
+plt.plot(data)  #1 seul argument: 'data'
+plt.xticks(range(len(data)), jours, rotation=0)
+plt.show()
+

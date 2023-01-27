@@ -34,12 +34,18 @@ def ecartType(liste):
 
 
 #La fonction ci-dessous crée un graphe avec matplotlib, il faut lui renseigner 5 informations
-def courbeGraphe(Lx,Ly,Ly2,xlabel,ylabel,title):
-    plt.plot(Lx, Ly, 'b')
-    plt.plot(Lx, Ly2, 'r')
+def courbeGraphe(Lx,Ly,Ly2, Lcmpt, xlabel,ylabel,title):
+    plt.plot(Ly, 'b', label='courbe')
+    plt.plot(Ly2, 'r', label='limite de saturation')
+    plt.xticks(range(len(Ly)), Lx, rotation=10)
+    plt.ylim(-10,110)
+    plt.legend(loc = 'upper left')
+    ax = plt.gca()
+    ax.set_xticks(Lcmpt)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
+
 
 #La fonction ci-dessous permet d'aller récupérer les fichiers nécessaires pour effectuer les analyses des données
 def getliste(folder_path):

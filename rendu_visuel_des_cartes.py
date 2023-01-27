@@ -34,230 +34,216 @@ data = response.json()
 
 
 
-# def rendu_cartes_tram():
-#                     #ajoute les tram sur la map#
-#     carte = folium.Map(location=[43.608792, 3.875865], zoom_start=13)
-#     url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
-#     data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
-#
-#
-#     carte.save('map/CarteTram.html')
-#
-#
-#
-#
-#
-# def rendu_cartes_tout():
-#                     #ajoute les tram sur la map#
-#     carte = folium.Map(location=[43.608792, 3.875865], zoom_start=12)
-#     url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
-#     data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
-#
-#                     #ajoute les parkings depuis un fichier opendata
-#     url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
-#     response = get(url2)
-#     data = response.json()
-#
-#     for i in data["features"]:
-#         popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
-#
-#         if i["properties"]["nom"] in ressource :
-#             folium.Marker(
-#             location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#             popup=popup_info,
-#             icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#
-#         else :
-#             if i["properties"]["Ylat"] == None:
-#                 continue
-#             else:
-#                 folium.Marker(
-#                 location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#                 popup=popup_info,
-#                 icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
-#
-#                 # ajout des parkings ne figurant pas sur le fichier open data
-#     for j in ressource_extra:
-#         popup_info2 ="Parking:", j["nom"]
-#         folium.Marker(
-#         location=[j["Ylat"],j["Xlong"]],
-#         popup=popup_info2,
-#         icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#
-#     for i in range(len(getliste('donnees_vélos_statiques'))):
-#         with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r') as fichier:
-#             fichier=fichier.readlines()
-#             position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
-#
-#         popup_info2 ="Parking vélo:", position[1]
-#         folium.Marker(
-#         location=[position[2],position[3]],
-#         popup=popup_info2,
-#         icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
-#
-#
-#
-#
-#     carte.save('map/CarteTout.html')
-#
-#
-#
-# def rendu_cartes_chq_parking():
-#
-#
-#                     #ajoute les parkings depuis un fichier opendata
-#     url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
-#     response = get(url2)
-#     data = response.json()
-#     url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
-#     for i in data["features"]:
-#
-#         popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
-#         if i["properties"]["nom"] in ressource :
-#
-#             carte = folium.Map(location=[i["properties"]["Ylat"],i["properties"]["Xlong"]], zoom_start=14)
-#
-#             data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
-#             folium.Marker(
-#             location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#             popup=popup_info,
-#             icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#             carte.save(f'map/Carte{i["properties"]["nom"]}.html')
-#
-#         else :
-#             if i["properties"]["Ylat"] == None:
-#                 continue
-#             else:
-#                 folium.Marker(
-#                 location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#                 popup=popup_info,
-#                 icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
-#
-#
-#
-#
-#
-# def fonction_couleur(info): #choix couleur pour les lignes de tram
-#     couleur = 'blue'
-#     if info['properties']['nom'] == 'LIGNE 2':
-#         couleur = 'orange'
-#     elif info['properties']['nom'] == 'LIGNE 3':
-#         couleur = 'black'
-#     elif info['properties']['nom'] == 'LIGNE 4':
-#         couleur = 'yellow'
-#     return {'color': couleur}
+def rendu_cartes_tram():
+                    #ajoute les tram sur la map#
+    carte = folium.Map(location=[43.608792, 3.875865], zoom_start=13)
+    url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
+    data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
 
-#
-# def map_velo_extension():
-#     carte = folium.Map(location=[43.608792, 3.875865], zoom_start=12)
-#     url3='https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_ReseauExpressVeloREV.json'
-#     data_velo = folium.GeoJson(url3, style_function=lambda x: {'color':'darkviolet'}).add_to(carte) #ici on se sert de lambda de x car c'est une fonction qui ne necessite pas d'être réutilisée/ inutile, je ne l'ai pas fait pour fonction_couleur qui comportait 4 couleurs différentes
-#                     #ajoute les parkings depuis un fichier opendata
-#     url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
-#     response = get(url2)
-#     data = response.json()
-#
-#     for i in data["features"]:
-#         popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
-#
-#         if i["properties"]["nom"] in ressource :
-#             folium.Marker(
-#             location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#             popup=popup_info,
-#             icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#
-#         else :
-#             if i["properties"]["Ylat"] == None:
-#                 continue
-#             else:
-#                 folium.Marker(
-#                 location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#                 popup=popup_info,
-#                 icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
-#
-#                 # ajout des parkings ne figurant pas sur le fichier open data
-#     for j in ressource_extra:
-#         popup_info2 ="Parking:", j["nom"]
-#         folium.Marker(
-#         location=[j["Ylat"],j["Xlong"]],
-#         popup=popup_info2,
-#         icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#
-#     for i in range(len(getliste('donnees_vélos_statiques'))):
-#         with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r') as fichier:
-#             fichier=fichier.readlines()
-#             position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
-#             print(position)
-#
-#         popup_info2 ="Parking vélo:", position[1]
-#         folium.Marker(
-#         location=[position[2],position[3]],
-#         popup=popup_info2,
-#         icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
-#
-#     carte.save('map/CarteVeloExtension.html')
-#
 
-# def rendu_chq_parkings_velo():
-#     for i in range(len(getliste('donnees_vélos_statiques'))):
-#         with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r') as fichier:
-#             fichier=fichier.readlines()
-#             position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
-#
-#             carte = folium.Map(location=[position[2],position[3]], zoom_start=15)
-#             popup_info2 ="Parking vélo:", position[1]
-#             folium.Marker(
-#             location=[position[2],position[3]],
-#             popup=popup_info2,
-#             icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
-#
-#             url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
-#             data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
-#             url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
-#             response = get(url2)
-#             data = response.json()
-#             for i in data["features"]:
-#                 popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
-#                 if i["properties"]["nom"] in ressource :
-#                     folium.Marker(
-#                     location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#                     popup=popup_info,
-#                     icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#                 else :
-#                     if i["properties"]["Ylat"] == None:
-#                         continue
-#                     else:
-#                         folium.Marker(
-#                         location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
-#                         popup=popup_info,
-#                         icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
-#
-#                         # ajout des parkings ne figurant pas sur le fichier open data
-#             for j in ressource_extra:
-#                 popup_info2 ="Parking:", j["nom"]
-#                 folium.Marker(
-#                 location=[j["Ylat"],j["Xlong"]],
-#                 popup=popup_info2,
-#                 icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
-#
-#
-#
-#
-#                 carte.save('map/CarteVelo'+position[1]+'.html')
+    carte.save('map/CarteTram.html')
 
 
 
 
 
-# rendu_chq_parkings_velo()
-# print("oui1")
-# rendu_cartes_tram()
-# print("oui3")
-# rendu_cartes_tout()
-# print("oui5")
-# rendu_cartes_chq_parking()
-# print("oui6")
-# map_velo_extension()
+def rendu_cartes_tout():
+                    #ajoute les tram sur la map#
+    carte = folium.Map(location=[43.608792, 3.875865], zoom_start=12)
+    url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
+    data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
+
+                    #ajoute les parkings depuis un fichier opendata
+    url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
+    response = get(url2)
+    data = response.json()
+
+    for i in data["features"]:
+        popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
+
+        if i["properties"]["nom"] in ressource :
+            folium.Marker(
+            location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+            popup=popup_info,
+            icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+
+        else :
+            if i["properties"]["Ylat"] == None:
+                continue
+            else:
+                folium.Marker(
+                location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+                popup=popup_info,
+                icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
+
+                # ajout des parkings ne figurant pas sur le fichier open data
+    for j in ressource_extra:
+        popup_info2 ="Parking:", j["nom"]
+        folium.Marker(
+        location=[j["Ylat"],j["Xlong"]],
+        popup=popup_info2,
+        icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+
+    for i in range(len(getliste('donnees_vélos_statiques'))):
+        with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r',encoding='utf8') as fichier:
+            fichier=fichier.readlines()
+            position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
+
+        popup_info2 ="Parking vélo:", position[1]
+        folium.Marker(
+        location=[position[2],position[3]],
+        popup=popup_info2,
+        icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
+
+
+
+
+    carte.save('map/CarteTout.html')
+
+
+
+def rendu_cartes_chq_parking():
+
+
+                    #ajoute les parkings depuis un fichier opendata
+    url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
+    response = get(url2)
+    data = response.json()
+    url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
+    for i in data["features"]:
+
+        popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
+        if i["properties"]["nom"] in ressource :
+
+            carte = folium.Map(location=[i["properties"]["Ylat"],i["properties"]["Xlong"]], zoom_start=14)
+
+            data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
+            folium.Marker(
+            location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+            popup=popup_info,
+            icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+            carte.save(f'map/Carte{i["properties"]["nom"]}.html')
+
+        else :
+            if i["properties"]["Ylat"] == None:
+                continue
+            else:
+                folium.Marker(
+                location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+                popup=popup_info,
+                icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
+
+
+
+
+
+def fonction_couleur(info): #choix couleur pour les lignes de tram
+    couleur = 'blue'
+    if info['properties']['nom'] == 'LIGNE 2':
+        couleur = 'orange'
+    elif info['properties']['nom'] == 'LIGNE 3':
+        couleur = 'black'
+    elif info['properties']['nom'] == 'LIGNE 4':
+        couleur = 'yellow'
+    return {'color': couleur}
+
+
+def map_velo_extension():
+    carte = folium.Map(location=[43.608792, 3.875865], zoom_start=12)
+    url3='https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_ReseauExpressVeloREV.json'
+    data_velo = folium.GeoJson(url3, style_function=lambda x: {'color':'darkviolet'}).add_to(carte) #ici on se sert de lambda de x car c'est une fonction qui ne necessite pas d'être réutilisée/ inutile, je ne l'ai pas fait pour fonction_couleur qui comportait 4 couleurs différentes
+                    #ajoute les parkings depuis un fichier opendata
+    url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
+    response = get(url2)
+    data = response.json()
+
+    for i in data["features"]:
+        popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
+
+        if i["properties"]["nom"] in ressource :
+            folium.Marker(
+            location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+            popup=popup_info,
+            icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+
+        else :
+            if i["properties"]["Ylat"] == None:
+                continue
+            else:
+                folium.Marker(
+                location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+                popup=popup_info,
+                icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
+
+                # ajout des parkings ne figurant pas sur le fichier open data
+    for j in ressource_extra:
+        popup_info2 ="Parking:", j["nom"]
+        folium.Marker(
+        location=[j["Ylat"],j["Xlong"]],
+        popup=popup_info2,
+        icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+
+    for i in range(len(getliste('donnees_vélos_statiques'))):
+        with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r') as fichier:
+            fichier=fichier.readlines()
+            position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
+            print(position)
+
+        popup_info2 ="Parking vélo:", position[1]
+        folium.Marker(
+        location=[position[2],position[3]],
+        popup=popup_info2,
+        icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
+
+    carte.save('map/CarteVeloExtension.html')
+
+def rendu_chq_parkings_velo():
+    ressources_velos=[]
+    for i in range(len(getliste('donnees_vélos_statiques'))):
+        with open("donnees_vélos_statiques/"+getliste('donnees_vélos_statiques')[i],'r', encoding='utf8') as fichier:
+            fichier=fichier.readlines()
+            position=[fichier[0][0:-1],fichier[1][0:-1],fichier[2][0:-1],fichier[3][0:-1]]
+
+            carte = folium.Map(location=[position[2],position[3]], zoom_start=15)
+            popup_info2 ="Parking vélo:", position[1]
+            folium.Marker(
+            location=[position[2],position[3]],
+            popup=popup_info2,
+            icon=folium.Icon(color="green", icon="info-sign"),).add_to(carte)
+
+            # url = "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MMM_LigneTram.json"
+            # data_tram = folium.GeoJson(url, style_function=fonction_couleur).add_to(carte)
+            # url2 = "https://data.montpellier3m.fr/sites/default/files/ressources/VilleMTP_MTP_ParkingOuv.geojson"
+            # response = get(url2)
+            # data = response.json()
+            # for i in data["features"]:
+            #     popup_info ="Parking:", i["properties"]["nom"],  "Type: ", i["properties"]["domanialit"]
+            #     if i["properties"]["nom"] in ressource :
+            #         folium.Marker(
+            #         location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+            #         popup=popup_info,
+            #         icon=folium.Icon(color="blue", icon="info-sign"),).add_to(carte)
+            #     else :
+            #         if i["properties"]["Ylat"] == None:
+            #             continue
+            #         else:
+            #             folium.Marker(
+            #             location=[i["properties"]["Ylat"],i["properties"]["Xlong"]],
+            #             popup=popup_info,
+            #             icon=folium.Icon(color="darkblue", icon="info-sign"),).add_to(carte)
+
+
+            ressources_velos.append(position[1])
+            carte.save('map/CarteVelo'+position[1]+'.html')
+    return ressources_velos
+
+rendu_cartes_tout()
+ressources_velos=rendu_chq_parkings_velo()
+
+def Lvelos():
+    return ressources_velos
+
+
 
 
 
